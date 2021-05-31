@@ -125,7 +125,7 @@ async def main(mytimer: func.TimerRequest) -> None:
 
     async with aiohttp.ClientSession() as session:
 
-        with open('list.csv', newline='') as pharma:
+        with open('pharmacy-list/list.csv', newline='') as pharma:
             pharma_reader = csv.reader(pharma)
             next(pharma_reader)
             pharmacies = [i for i in pharma_reader]

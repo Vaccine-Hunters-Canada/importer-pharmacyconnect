@@ -44,7 +44,7 @@ def get_options(driver, time, data):
 
 def scrape_pharm_booking():
 
-    with open('list.csv', mode='w') as file:
+    with open('pharmacy-list/list.csv', mode='w') as file:
         file_writer = csv.writer(file, delimiter=',')
         file_writer.writerow(['Name', 'Address', 'Postal Code', 'Province', 'Store_id', 'Availability', 'URL'])
 

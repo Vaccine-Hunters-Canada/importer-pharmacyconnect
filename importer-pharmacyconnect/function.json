@@ -6,6 +6,13 @@
         "type": "timerTrigger",
         "direction": "in",
         "schedule": "0 0 */12 * * *"
+      },
+      {
+        "name": "outputblob",
+        "type": "blob",
+        "dataType": "binary",
+        "path": "pharmacy-list",
+        "direction": "out"
       }
     ]
   }
