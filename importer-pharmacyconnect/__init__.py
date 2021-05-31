@@ -1,7 +1,7 @@
 import logging
 import os
 import csv
-from pharmacybooking import scrape_pharm_booking
+from .pharmacybooking import scrape_pharm_booking
 from datetime import datetime
 import aiohttp
 import asyncio
@@ -10,7 +10,7 @@ import azure.functions as func
 
 API_KEY = f'Bearer {os.environ.get("API_KEY")}'
 BASE_URL = os.environ.get('BASE_URL')
-VHC_ORG = os.environ.get('ORG')
+VHC_ORG = os.environ.get('ORG') # Staging: 26, Production: 
 
 
 def request_path(path):
@@ -143,11 +143,5 @@ async def main(mytimer: func.TimerRequest) -> None:
                 continue
             logging.info(f'Location: {store_id} {postal_code}')
             location_id = await get_or_create_location(session, store_id, store_name, address, postal_code, province, store_url)
-            print(location_id)
             logging.info(f'Availability: {available}')
             await create_or_update_availability(session, location_id, available)
-
-        
-
-if __name__ == '__main__':
-    asyncio.run(main(func.TimerRequest))

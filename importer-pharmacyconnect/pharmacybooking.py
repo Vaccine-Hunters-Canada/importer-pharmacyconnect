@@ -116,6 +116,3 @@ def scrape_pharm_booking():
 
         driver.quit()
 
-
-scrape_pharm_booking()
-
